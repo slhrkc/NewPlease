@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Welcome to Sign-up page.
+        <h:form>
+            <h:outputText value="E-mail address" ></h:outputText>
+            <h:inputText id="emailaddress" value="#{registerBean.emailAddress}" required="true"></h:inputText>
+            <br/>
+
+            <h:outputText value="Username"></h:outputText>
+            <h:inputText id="username" value="#{registerBean.userName}"></h:inputText>
+            <br/>
+            
+            <h:outputText value="Password"></h:outputText>
+            <h:inputSecret id="password" value="#{registerBean.password}"></h:inputSecret>
+            <br/>
+
+            <h:commandButton  value="Register" action="#{registerBean.doRegister()}"></h:commandButton>
+
+
+        </h:form>
+    </h:body>
+
+</html>
+
