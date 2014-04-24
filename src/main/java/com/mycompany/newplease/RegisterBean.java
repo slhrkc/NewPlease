@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.mycompany.newplease;
 
 /*
@@ -11,8 +10,6 @@ package com.mycompany.newplease;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,32 +22,25 @@ import javax.sql.DataSource;
 import org.apache.shiro.authc.credential.DefaultPasswordService;
 import org.apache.shiro.authc.credential.PasswordService;
 
-
 /**
  *
  * @author salih
  */
 @Named
 @SessionScoped
-public class RegisterBean implements Serializable{
-    
-    
-    
+public class RegisterBean implements Serializable {
 
-    
     private Connection con;
-    
-    private String emailAddress="3234234";
+
+    private String emailAddress = "3234234";
     private String userName;
     private String password;
     private Date registerDate;
-    
-    
 
-    
+    public RegisterBean() {
+        System.out.print("fdsfsdf");
+    }
 
-    public RegisterBean(){System.out.print("fdsfsdf");}
-    
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -74,27 +64,26 @@ public class RegisterBean implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public void doRegister() throws SQLException{
+
+    public static void doRegister() throws SQLException {
         PasswordService dps = new DefaultPasswordService();
-        System.out.println("Test succesful");
-         //con = ds.getConnection();
-         //PreparedStatement ps = con.prepareStatement("insert into user(username, password, email, fullname) values (?, ?, ?, ?)");
-        String pass = "333"; 
+
+        //con = ds.getConnection();
+        //PreparedStatement ps = con.prepareStatement("insert into user(username, password, email, fullname) values (?, ?, ?, ?)");
+        String pass = "333";
         String temp = dps.encryptPassword(pass);
-         //ps.setString(1, userName);
-         //ps.setString(2, temp);
-         //ps.setString(3, emailAddress);
-         //ps.setString(4, "Salih ERİKCİ");
-         //ps.executeUpdate();
+        //ps.setString(1, userName);
+        //ps.setString(2, temp);
+        //ps.setString(3, emailAddress);
+        //ps.setString(4, "Salih ERİKCİ");
+        //ps.executeUpdate();
         //DatabaseOperations.initializeDB(this);
-         System.out.println("AAAA  "+dps.passwordsMatch(pass, temp));
-         
-         
-         
-         
-        
+        System.out.println("AAAA  " + dps.passwordsMatch("333", temp));
+
     }
-        
-    
+
+    public static void main(String[] args) throws SQLException {
+        doRegister();
+    }
+
 }
